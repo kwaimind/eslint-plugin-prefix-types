@@ -1,6 +1,6 @@
 # eslint-plugin-prefix-types
 
-An ESLint plugin to enforce the prefixing of interfaces, types, and styled components.
+An ESLint plugin to enforce the prefixing of interfaces, types, and styled components. Includes code fixing to fix the errors found.
 
 | Valid                                               | Invalid                                            | Reason                                  |
 | --------------------------------------------------- | -------------------------------------------------- | --------------------------------------- |
@@ -41,7 +41,3 @@ Then configure the rules you want to use under the rules section.
   }
 }
 ```
-
-## Supported Rules
-
-- Fill in provided rules here
