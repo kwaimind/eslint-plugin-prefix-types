@@ -25,16 +25,19 @@ tester.run("prefix-types", rule, {
     {
       code: "interface AnotherInterface { preview: boolean; }",
       errors: [{ message: "Interfaces must start with a captial I" }],
+      output: "interface IAnotherInterface { preview: boolean; }",
     },
     {
       code: 'type MyType = "yes" | "no"',
       errors: [{ message: "Types must start with a captial T" }],
+      output: 'type TMyType = "yes" | "no"',
     },
     {
       code: "const CardWrapper = styled.div`display: flex;`",
       errors: [
         { message: "Styled Component names must start with a captial S" },
       ],
+      output: "const SCardWrapper = styled.div`display: flex;`",
     },
     /* {
       code: "interface InfoBoxProps { preview: boolean; }",

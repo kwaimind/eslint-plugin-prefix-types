@@ -37,7 +37,7 @@ Then configure the rules you want to use under the rules section.
 ```json
 {
   "rules": {
-    "prefix-types/rule-name": 2
+    "prefix-types/prefix-types": 1
   }
 }
 ```
