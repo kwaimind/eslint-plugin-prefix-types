@@ -24,7 +24,7 @@ npm install eslint-plugin-prefix-types --save-dev
 
 ## Usage
 
-Add `carglass-style` to the plugins section of your `.eslintrc` configuration file. You can omit the `eslint-plugin-` prefix:
+Add `prefix-types` to the plugins section of your `.eslintrc` configuration file. You can omit the `eslint-plugin-` prefix:
 
 ```json
 {

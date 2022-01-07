@@ -36,9 +36,9 @@ tester.run("prefix-types", rule, {
         { message: "Styled Component names must start with a captial S" },
       ],
     },
-    {
+    /* {
       code: "interface InfoBoxProps { preview: boolean; }",
       errors: [{ message: "Interfaces must start with a captial I" }],
-    },
+    }, */
   ],
 });
