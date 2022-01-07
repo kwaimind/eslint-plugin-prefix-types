@@ -19,6 +19,7 @@ tester.run("prefix-types", rule, {
     "interface IAnotherInterface { preview: boolean; }",
     'type TMyType = "yes" | "no"',
     "const SCardWrapper = styled.div`display: flex;`",
+    "interface IInfoBoxProps { preview: boolean; }",
   ],
   invalid: [
     {
@@ -34,6 +35,10 @@ tester.run("prefix-types", rule, {
       errors: [
         { message: "Styled Component names must start with a captial S" },
       ],
+    },
+    {
+      code: "interface InfoBoxProps { preview: boolean; }",
+      errors: [{ message: "Interfaces must start with a captial I" }],
     },
   ],
 });

@@ -1,6 +1,12 @@
 # eslint-plugin-prefix-types
 
-asdasdsa
+An ESLint plugin to enforce the prefixing of interfaces, types, and styled components.
+
+| Valid                                               | Invalid                                            | Reason                                  |
+| --------------------------------------------------- | -------------------------------------------------- | --------------------------------------- |
+| `interface IAnotherInterface { preview: boolean; }` | `interface AnotherInterface { preview: boolean; }` | Interfaces should start with `I`        |
+| `type TMyType = "Single"`                           | `type MyType = "Single"`                           | Types should start with `T`             |
+| ` const SCardWrapper = styled.div``display: flex; ` | ` const CardWrapper = styled.div``display: flex; ` | Styled components should start with `S` |
 
 ## Installation
 
