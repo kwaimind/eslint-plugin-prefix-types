@@ -19,7 +19,7 @@ tester.run("rule: types", rule, {
   invalid: [
     {
       code: 'type MyType = "yes" | "no"',
-      errors: [{ message: "Types must start with a captial T" }],
+      errors: [{ message: "Types must start with a capital T" }],
       output: 'type TMyType = "yes" | "no"',
     },
   ],

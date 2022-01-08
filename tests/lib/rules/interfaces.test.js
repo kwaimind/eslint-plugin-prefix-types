@@ -23,17 +23,17 @@ tester.run("rule: interfaces", rule, {
   invalid: [
     {
       code: "interface AnotherInterface { preview: boolean; }",
-      errors: [{ message: "Interfaces must start with a captial I" }],
+      errors: [{ message: "Interfaces must start with a capital I" }],
       output: "interface IAnotherInterface { preview: boolean; }",
     },
     {
       code: "interface CustomProps extends AppProps { preview: boolean; }",
-      errors: [{ message: "Interfaces must start with a captial I" }],
+      errors: [{ message: "Interfaces must start with a capital I" }],
       output: "interface ICustomProps extends AppProps { preview: boolean; }",
     },
     /* {
       code: "interface InfoBoxProps { preview: boolean; }",
-      errors: [{ message: "Interfaces must start with a captial I" }],
+      errors: [{ message: "Interfaces must start with a capital I" }],
     }, */
   ],
 });

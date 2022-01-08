@@ -20,7 +20,7 @@ tester.run("rule: styled-components", rule, {
     {
       code: "const CardWrapper = styled.div`display: flex;`",
       errors: [
-        { message: "Styled Component names must start with a captial S" },
+        { message: "Styled Component names must start with a capital S" },
       ],
       output: "const SCardWrapper = styled.div`display: flex;`",
     },
