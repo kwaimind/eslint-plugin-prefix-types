@@ -6,16 +6,19 @@
 "use strict";
 
 const rule = require("../../../lib/rules/styled-components");
+const options = require("./options");
+
 const RuleTester = require("eslint").RuleTester;
-RuleTester.setDefaultConfig({
-  parserOptions: { ecmaVersion: 6, sourceType: "module" },
-  // eslint-disable-next-line node/no-unpublished-require
-  parser: require.resolve("@typescript-eslint/parser"),
-});
+
+RuleTester.setDefaultConfig(options);
+
 const tester = new RuleTester();
 
 tester.run("rule: styled-components", rule, {
-  valid: ["const SCardWrapper = styled.div`display: flex;`"],
+  valid: [
+    "const SCardWrapper = styled.div`display: flex;`",
+    "export const SCardWrapper = styled.div`display: flex;`",
+  ],
   invalid: [
     {
       code: "const CardWrapper = styled.div`display: flex;`",

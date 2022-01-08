@@ -6,16 +6,16 @@
 "use strict";
 
 const rule = require("../../../lib/rules/types");
+const options = require("./options");
+
 const RuleTester = require("eslint").RuleTester;
-RuleTester.setDefaultConfig({
-  parserOptions: { ecmaVersion: 6, sourceType: "module" },
-  // eslint-disable-next-line node/no-unpublished-require
-  parser: require.resolve("@typescript-eslint/parser"),
-});
+
+RuleTester.setDefaultConfig(options);
+
 const tester = new RuleTester();
 
 tester.run("rule: types", rule, {
-  valid: ['type TMyType = "yes" | "no"'],
+  valid: ['type TMyType = "yes" | "no"', 'export type TMyType = "yes" | "no"'],
   invalid: [
     {
       code: 'type MyType = "yes" | "no"',

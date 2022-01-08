@@ -6,12 +6,12 @@
 "use strict";
 
 const rule = require("../../../lib/rules/interfaces");
+const options = require("./options");
+
 const RuleTester = require("eslint").RuleTester;
-RuleTester.setDefaultConfig({
-  parserOptions: { ecmaVersion: 6, sourceType: "module" },
-  // eslint-disable-next-line node/no-unpublished-require
-  parser: require.resolve("@typescript-eslint/parser"),
-});
+
+RuleTester.setDefaultConfig(options);
+
 const tester = new RuleTester();
 
 tester.run("rule: interfaces", rule, {
@@ -19,6 +19,7 @@ tester.run("rule: interfaces", rule, {
     "interface IAnotherInterface { preview: boolean; }",
     "interface IInfoBoxProps { preview: boolean; }",
     "interface ICustomProps extends AppProps { preview: boolean; }",
+    "export interface ICustomProps { preview: boolean; }",
   ],
   invalid: [
     {
