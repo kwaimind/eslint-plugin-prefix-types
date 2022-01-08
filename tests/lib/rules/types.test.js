@@ -15,12 +15,21 @@ RuleTester.setDefaultConfig(options);
 const tester = new RuleTester();
 
 tester.run("rule: types", rule, {
-  valid: ['type TMyType = "yes" | "no"', 'export type TMyType = "yes" | "no"'],
+  valid: [
+    'type TMyType = "yes" | "no"',
+    'export type TMyType = "yes" | "no"',
+    'type TInfo = "test1" | "test2"',
+  ],
   invalid: [
     {
       code: 'type MyType = "yes" | "no"',
       errors: [{ message: "Types must start with a capital T" }],
       output: 'type TMyType = "yes" | "no"',
+    },
+    {
+      code: "type InfoType = true | false",
+      errors: [{ message: "Types must start with a capital T" }],
+      output: "type TInfoType = true | false",
     },
   ],
 });
