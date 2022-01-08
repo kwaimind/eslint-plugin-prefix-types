@@ -1,11 +1,7 @@
-/**
- * @fileoverview Tests for the prefix-types plugin
- * @author Daniel Reed
- */
-
 "use strict";
 
 const rule = require("../../../lib/rules/interfaces");
+
 const options = require("./options");
 
 const RuleTester = require("eslint").RuleTester;
