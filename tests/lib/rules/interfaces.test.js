@@ -5,7 +5,7 @@
 
 "use strict";
 
-const rule = require("../../../lib/rules/prefix-types");
+const rule = require("../../../lib/rules/interfaces");
 const RuleTester = require("eslint").RuleTester;
 RuleTester.setDefaultConfig({
   parserOptions: { ecmaVersion: 6, sourceType: "module" },
@@ -14,12 +14,11 @@ RuleTester.setDefaultConfig({
 });
 const tester = new RuleTester();
 
-tester.run("prefix-types", rule, {
+tester.run("rule: interfaces", rule, {
   valid: [
     "interface IAnotherInterface { preview: boolean; }",
-    'type TMyType = "yes" | "no"',
-    "const SCardWrapper = styled.div`display: flex;`",
     "interface IInfoBoxProps { preview: boolean; }",
+    "interface ICustomProps extends AppProps { preview: boolean; }",
   ],
   invalid: [
     {
@@ -28,16 +27,9 @@ tester.run("prefix-types", rule, {
       output: "interface IAnotherInterface { preview: boolean; }",
     },
     {
-      code: 'type MyType = "yes" | "no"',
-      errors: [{ message: "Types must start with a captial T" }],
-      output: 'type TMyType = "yes" | "no"',
-    },
-    {
-      code: "const CardWrapper = styled.div`display: flex;`",
-      errors: [
-        { message: "Styled Component names must start with a captial S" },
-      ],
-      output: "const SCardWrapper = styled.div`display: flex;`",
+      code: "interface CustomProps extends AppProps { preview: boolean; }",
+      errors: [{ message: "Interfaces must start with a captial I" }],
+      output: "interface ICustomProps extends AppProps { preview: boolean; }",
     },
     /* {
       code: "interface InfoBoxProps { preview: boolean; }",
