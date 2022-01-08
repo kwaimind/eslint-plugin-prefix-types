@@ -1,11 +1,5 @@
-/**
- * @fileoverview Tests for the prefix-types plugin
- * @author Daniel Reed
- */
-
-"use strict";
-
 const rule = require("../../../lib/rules/styled-components");
+
 const options = require("./options");
 
 const RuleTester = require("eslint").RuleTester;
@@ -18,6 +12,7 @@ tester.run("rule: styled-components", rule, {
   valid: [
     "const SCardWrapper = styled.div`display: flex;`",
     "export const SCardWrapper = styled.div`display: flex;`",
+    "const SInfoBox = styled.div`display: flex;`",
   ],
   invalid: [
     {
@@ -26,6 +21,13 @@ tester.run("rule: styled-components", rule, {
         { message: "Styled Component names must start with a capital S" },
       ],
       output: "const SCardWrapper = styled.div`display: flex;`",
+    },
+    {
+      code: "const InfoBox = styled.div`display: flex;`",
+      errors: [
+        { message: "Styled Component names must start with a capital S" },
+      ],
+      output: "const SInfoBox = styled.div`display: flex;`",
     },
   ],
 });
