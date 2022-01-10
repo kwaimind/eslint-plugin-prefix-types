@@ -15,12 +15,18 @@ tester.run("rule: types", rule, {
     'type TMyType = "yes" | "no"',
     'export type TMyType = "yes" | "no"',
     'type TInfo = "test1" | "test2"',
+    'type TTestType = "test1" | "test2"',
   ],
   invalid: [
     {
       code: 'type MyType = "yes" | "no"',
       errors: [{ message: "Types must start with a capital T" }],
       output: 'type TMyType = "yes" | "no"',
+    },
+    {
+      code: 'type TestType = "test1" | "test2"',
+      errors: [{ message: "Types must start with a capital T" }],
+      output: 'type TTestType = "test1" | "test2"',
     },
     {
       code: "type InfoType = true | false",

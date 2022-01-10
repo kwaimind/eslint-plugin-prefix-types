@@ -13,6 +13,7 @@ tester.run("rule: styled-components", rule, {
     "const SCardWrapper = styled.div`display: flex;`",
     "export const SCardWrapper = styled.div`display: flex;`",
     "const SInfoBox = styled.div`display: flex;`",
+    "const SStyledContainer = styled.div`display: flex;`",
   ],
   invalid: [
     {
@@ -23,11 +24,11 @@ tester.run("rule: styled-components", rule, {
       output: "const SCardWrapper = styled.div`display: flex;`",
     },
     {
-      code: "const InfoBox = styled.div`display: flex;`",
+      code: "const StyledContainer = styled.div`display: flex;`",
       errors: [
         { message: "Styled Component names must start with a capital S" },
       ],
-      output: "const SInfoBox = styled.div`display: flex;`",
+      output: "const SStyledContainer = styled.div`display: flex;`",
     },
   ],
 });
