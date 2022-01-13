@@ -14,6 +14,7 @@ tester.run("rule: styled-components", rule, {
     "export const SCardWrapper = styled.div`display: flex;`",
     "const SInfoBox = styled.div`display: flex;`",
     "const SStyledContainer = styled.div`display: flex;`",
+    "declare module '*.svg' { const content: any; export const ReactComponent: any; export default content; }",
   ],
   invalid: [
     {
