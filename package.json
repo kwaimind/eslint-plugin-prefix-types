@@ -14,7 +14,8 @@
   "scripts": {
     "lint": "eslint .",
     "test": "mocha tests --recursive",
-    "test:watch": "mocha tests --recursive --watch"
+    "test:watch": "mocha tests --recursive --watch",
+    "release": "np --no-release-draft"
   },
   "dependencies": {
     "@types/node": "^17.0.8",
