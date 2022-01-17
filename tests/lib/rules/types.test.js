@@ -41,7 +41,7 @@ tester.run("rule: types", rule, {
     {
       code: "type myType = true | false",
       errors: [{ message: "Types must start with a capital T" }],
-      output: "type TmyType = true | false",
+      output: "type TMyType = true | false",
     },
   ],
 });

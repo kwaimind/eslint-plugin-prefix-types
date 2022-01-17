@@ -14,6 +14,7 @@ tester.run("rule: styled-components", rule, {
     "export const SCardWrapper = styled.div`display: flex;`",
     "const SInfoBox = styled.div`display: flex;`",
     "const SStyledContainer = styled.div`display: flex;`",
+    "const SMyStyledContainer = styled.div`display: flex;`",
     "declare module '*.svg' { const content: any; export const ReactComponent: any; export default content; }",
   ],
   invalid: [
@@ -30,6 +31,13 @@ tester.run("rule: styled-components", rule, {
         { message: "Styled Component names must start with a capital S" },
       ],
       output: "const SStyledContainer = styled.div`display: flex;`",
+    },
+    {
+      code: "const myStyledContainer = styled.div`display: flex;`",
+      errors: [
+        { message: "Styled Component names must start with a capital S" },
+      ],
+      output: "const SMyStyledContainer = styled.div`display: flex;`",
     },
   ],
 });
