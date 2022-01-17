@@ -33,5 +33,10 @@ tester.run("rule: interfaces", rule, {
       errors: [{ message: "Interfaces must start with a capital I" }],
       output: "interface IInfoBoxProps { preview: boolean; }",
     },
+    {
+      code: "interface myInfoProps { preview: boolean; }",
+      errors: [{ message: "Interfaces must start with a capital I" }],
+      output: "interface ImyInfoProps { preview: boolean; }",
+    },
   ],
 });
