@@ -1,6 +1,6 @@
 "use strict";
 
-const rule = require("../../../lib/rules/interfaces");
+const rule = require("../../../lib/rules/prefer-interface-prefix");
 
 const options = require("./options");
 
@@ -10,7 +10,7 @@ RuleTester.setDefaultConfig(options);
 
 const tester = new RuleTester();
 
-tester.run("rule: interfaces", rule, {
+tester.run("rule: prefer-interface-prefix", rule, {
   valid: [
     "interface IAnotherInterface { preview: boolean; }",
     "interface IInfoBoxProps { preview: boolean; }",
