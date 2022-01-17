@@ -42,14 +42,15 @@ Add `prefix-types` to the plugins section of your `.eslintrc` configuration file
 }
 ```
 
-Then configure the rules you want to use under the rules section. Setting `2` gives an error, and `1` gives a warning.
+Then configure the rules you want to use under the rules section.
 
 ```json
 {
   "rules": {
-    "prefix-types/types": 2,
-    "prefix-types/interfaces": 2,
-    "prefix-types/styled-components": 2
+    "prefix-types/types": "error",
+    "prefix-types/prefer-interface-prefix": "error",
+    "prefix-types/no-interface-prefix": "error",
+    "prefix-types/styled-components": "error"
   }
 }
 ```
