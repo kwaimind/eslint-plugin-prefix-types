@@ -5,16 +5,18 @@
 An ESLint plugin to enforce the prefixing of interfaces, types, and styled components. Includes code fixing to fix the errors found.
 
 **Rules:**
+
 - Interfaces should start with the letter I
 - Types should start with the letter T
 - Styled components should start with the letter S
-
 
 | Valid                                               | Invalid                                            |
 | --------------------------------------------------- | -------------------------------------------------- |
 | `interface IAnotherInterface { preview: boolean; }` | `interface AnotherInterface { preview: boolean; }` |
 | `type TMyType = "Single"`                           | `type MyType = "Single"`                           |
 | ` const SCardWrapper = styled.div``display: flex; ` | ` const CardWrapper = styled.div``display: flex; ` |
+
+This plugin follows the convention that interface and type names should use Pascal case. This means some names might be changed. For example, `myProps` would be changed to `IMyProps`.
 
 ## Installation
 
