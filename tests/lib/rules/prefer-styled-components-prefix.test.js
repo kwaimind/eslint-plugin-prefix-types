@@ -1,4 +1,4 @@
-const rule = require("../../../lib/rules/styled-components");
+const rule = require("../../../lib/rules/prefer-styled-components-prefix");
 
 const options = require("./options");
 
@@ -8,7 +8,7 @@ RuleTester.setDefaultConfig(options);
 
 const tester = new RuleTester();
 
-tester.run("rule: styled-components", rule, {
+tester.run(`rule: ${rule.meta.name}`, rule, {
   valid: [
     "const SCardWrapper = styled.div`display: flex;`",
     "export const SCardWrapper = styled.div`display: flex;`",
