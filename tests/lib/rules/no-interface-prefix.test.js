@@ -10,7 +10,7 @@ RuleTester.setDefaultConfig(options);
 
 const tester = new RuleTester();
 
-tester.run("rule: no-interface-prefix", rule, {
+tester.run(`rule: ${rule.meta.name}`, rule, {
   valid: [
     "interface AnotherInterface { preview: boolean; }",
     "interface InfoBoxProps { preview: boolean; }",
