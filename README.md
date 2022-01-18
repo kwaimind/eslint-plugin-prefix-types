@@ -6,17 +6,35 @@ An ESLint plugin to enforce the prefixing of interfaces, types, and styled compo
 
 **Rules:**
 
+`eslint-plugin-prefix-types` suppoorts 2 main rules types:
+- enforcing prefixing
+- preventing prefixing
+
+#### Enforcing prefixes
+
 - Interfaces should start with the letter I
 - Types should start with the letter T
 - Styled components should start with the letter S
 
 | Valid                                               | Invalid                                            |
 | --------------------------------------------------- | -------------------------------------------------- |
-| `interface IAnotherInterface { preview: boolean; }` | `interface AnotherInterface { preview: boolean; }` |
+| `interface Props { preview: boolean; }` | `interface Props { preview: boolean; }` |
 | `type TMyType = "Single"`                           | `type MyType = "Single"`                           |
-| ` const SCardWrapper = styled.div``display: flex; ` | ` const CardWrapper = styled.div``display: flex; ` |
+| ` const SCard = styled.div``display: flex; ` | ` const Card = styled.div``display: flex; ` |
 
-This plugin follows the convention that interface and type names should use Pascal case. This means some names might be changed. For example, `myProps` would be changed to `IMyProps`.
+#### Preventing prefixing
+
+- Interfaces should not start with the letter I
+- Types should not start with the letter T
+- Styled components should not start with the letter S
+
+| Valid                                               | Invalid                                            |
+| --------------------------------------------------- | -------------------------------------------------- |
+| `interface Props { preview: boolean; }` | `interface IProps { preview: boolean; }` |
+| `type MyType = "Single"`                           | `type YMyType = "Single"`                           |
+| ` const Card = styled.div``display: flex; ` | ` const SCard = styled.div``display: flex; ` |
+
+In both rules, this plugin follows the convention that interface and type names should use Pascal case. This means some names might be changed. For example, `myProps` would be changed to `IMyProps`.
 
 ## Installation
 
@@ -42,15 +60,17 @@ Add `prefix-types` to the plugins section of your `.eslintrc` configuration file
 }
 ```
 
-Then configure the rules you want to use under the rules section.
+Then configure the rules you want to use under the rules section. Set `warn` or `error` for the rules you need.
 
 ```json
 {
   "rules": {
-    "prefix-types/types": "error",
     "prefix-types/prefer-interface-prefix": "error",
-    "prefix-types/no-interface-prefix": "error",
-    "prefix-types/styled-components": "error"
+    "prefix-types/no-interface-prefix": "warn",
+    "prefix-types/prefer-type-prefix": "error",
+    "prefix-types/no-type-prefix": "warn",
+    "prefix-types/prefer-styled-component-prefix": "error",
+    "prefix-types/no-styled-component-prefix": "warn",
   }
 }
 ```
