@@ -1,6 +1,6 @@
 "use strict";
 
-const rule = require("../../../lib/rules/types");
+const rule = require("../../../lib/rules/prefer-type-prefix");
 
 const options = require("./options");
 
@@ -10,7 +10,7 @@ RuleTester.setDefaultConfig(options);
 
 const tester = new RuleTester();
 
-tester.run("rule: types", rule, {
+tester.run(`rule: ${rule.meta.name}`, rule, {
   valid: [
     'type TMyType = "yes" | "no"',
     'export type TMyType = "yes" | "no"',
