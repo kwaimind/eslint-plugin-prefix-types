@@ -19,7 +19,7 @@ An ESLint plugin to enforce the prefixing of interfaces, types, and styled compo
 
 | Valid                                        | Invalid                                     |
 | -------------------------------------------- | ------------------------------------------- |
-| `interface Props { preview: boolean; }`      | `interface Props { preview: boolean; }`     |
+| `interface IProps { preview: boolean; }`     | `interface Props { preview: boolean; }`     |
 | `type TMyType = "Single"`                    | `type MyType = "Single"`                    |
 | ` const SCard = styled.div``display: flex; ` | ` const Card = styled.div``display: flex; ` |
 
@@ -32,7 +32,7 @@ An ESLint plugin to enforce the prefixing of interfaces, types, and styled compo
 | Valid                                       | Invalid                                      |
 | ------------------------------------------- | -------------------------------------------- |
 | `interface Props { preview: boolean; }`     | `interface IProps { preview: boolean; }`     |
-| `type MyType = "Single"`                    | `type YMyType = "Single"`                    |
+| `type MyType = "Single"`                    | `type TMyType = "Single"`                    |
 | ` const Card = styled.div``display: flex; ` | ` const SCard = styled.div``display: flex; ` |
 
 In both rules, this plugin follows the convention that interface and type names should use Pascal case. This means some names might be changed. For example, `myProps` would be changed to `IMyProps`.
@@ -61,14 +61,14 @@ Add `prefix-types` to the plugins section of your `.eslintrc` configuration file
 }
 ```
 
-Then configure the rules you want to use under the rules section. Set `allow: true` to enforce prefixing, or `allow: false` to prevent it.
+Then configure the rules you want to use under the rules section. Set `allow: "always"` to enforce prefixing, or `allow: "never"` to prevent it.
 
 ```json
 {
   "rules": {
-    "prefix-types/prefer-interface-prefix": ["error", { "allow": true }],
-    "prefix-types/prefer-type-prefix": ["error", { "allow": true }],
-    "prefer-styled-component-prefix": ["error", { "allow": true }]
+    "prefix-types/prefer-interface-prefix": ["error", { "allow": "always" }],
+    "prefix-types/prefer-type-prefix": ["error", { "allow": "always" }],
+    "prefix-types/prefer-styled-component-prefix": ["error", { "allow": "always" }]
   }
 }
 ```
