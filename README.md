@@ -69,8 +69,8 @@ Then configure the rules you want to use under the rules section. Set `warn` or 
     "prefix-types/no-interface-prefix": "warn",
     "prefix-types/prefer-type-prefix": "error",
     "prefix-types/no-type-prefix": "warn",
-    "prefix-types/prefer-styled-component-prefix": "error",
-    "prefix-types/no-styled-component-prefix": "warn",
+    "prefer-styled-component-prefix": "error",
+    "no-styled-component-prefix": "warn"
   }
 }
 ```
