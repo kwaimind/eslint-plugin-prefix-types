@@ -6,7 +6,8 @@ An ESLint plugin to enforce the prefixing of interfaces, types, and styled compo
 
 **Rules:**
 
-`eslint-plugin-prefix-types` suppoorts 2 main rules types:
+`eslint-plugin-prefix-types` supports 2 main rules types:
+
 - enforcing prefixing
 - preventing prefixing
 
@@ -16,10 +17,10 @@ An ESLint plugin to enforce the prefixing of interfaces, types, and styled compo
 - Types should start with the letter T
 - Styled components should start with the letter S
 
-| Valid                                               | Invalid                                            |
-| --------------------------------------------------- | -------------------------------------------------- |
-| `interface Props { preview: boolean; }` | `interface Props { preview: boolean; }` |
-| `type TMyType = "Single"`                           | `type MyType = "Single"`                           |
+| Valid                                        | Invalid                                     |
+| -------------------------------------------- | ------------------------------------------- |
+| `interface Props { preview: boolean; }`      | `interface Props { preview: boolean; }`     |
+| `type TMyType = "Single"`                    | `type MyType = "Single"`                    |
 | ` const SCard = styled.div``display: flex; ` | ` const Card = styled.div``display: flex; ` |
 
 #### Preventing prefixing
@@ -28,10 +29,10 @@ An ESLint plugin to enforce the prefixing of interfaces, types, and styled compo
 - Types should not start with the letter T
 - Styled components should not start with the letter S
 
-| Valid                                               | Invalid                                            |
-| --------------------------------------------------- | -------------------------------------------------- |
-| `interface Props { preview: boolean; }` | `interface IProps { preview: boolean; }` |
-| `type MyType = "Single"`                           | `type YMyType = "Single"`                           |
+| Valid                                       | Invalid                                      |
+| ------------------------------------------- | -------------------------------------------- |
+| `interface Props { preview: boolean; }`     | `interface IProps { preview: boolean; }`     |
+| `type MyType = "Single"`                    | `type YMyType = "Single"`                    |
 | ` const Card = styled.div``display: flex; ` | ` const SCard = styled.div``display: flex; ` |
 
 In both rules, this plugin follows the convention that interface and type names should use Pascal case. This means some names might be changed. For example, `myProps` would be changed to `IMyProps`.
@@ -60,17 +61,14 @@ Add `prefix-types` to the plugins section of your `.eslintrc` configuration file
 }
 ```
 
-Then configure the rules you want to use under the rules section. Set `warn` or `error` for the rules you need.
+Then configure the rules you want to use under the rules section. Set `allow: true` to enforce prefixing, or `allow: false` to prevent it.
 
 ```json
 {
   "rules": {
-    "prefix-types/prefer-interface-prefix": "error",
-    "prefix-types/no-interface-prefix": "warn",
-    "prefix-types/prefer-type-prefix": "error",
-    "prefix-types/no-type-prefix": "warn",
-    "prefer-styled-component-prefix": "error",
-    "no-styled-component-prefix": "warn"
+    "prefix-types/prefer-interface-prefix": ["error", { "allow": true }],
+    "prefix-types/prefer-type-prefix": ["error", { "allow": true }],
+    "prefer-styled-component-prefix": ["error", { "allow": true }]
   }
 }
 ```
