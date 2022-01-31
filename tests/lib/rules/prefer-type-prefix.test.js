@@ -26,6 +26,10 @@ tester.run(`${rule.meta.name}: allow: "always"`, rule, {
       code: `const user: TUsers = "editor"`,
       options: [{ allow: "always" }],
     },
+    {
+      code: `const user = "editor" as TUsers`,
+      options: [{ allow: "always" }],
+    },
   ],
   invalid: [
     {
@@ -64,6 +68,12 @@ tester.run(`${rule.meta.name}: allow: "always"`, rule, {
       output: `const user: TUsers = "editor"`,
       options: [{ allow: "always" }],
     },
+    {
+      code: `const user = "editor" as Users`,
+      errors: [{ message: "Types must start with a capital T" }],
+      output: `const user = "editor" as TUsers`,
+      options: [{ allow: "always" }],
+    },
   ],
 });
 
@@ -81,6 +91,10 @@ tester.run(`${rule.meta.name}: allow: "never"`, rule, {
     },
     {
       code: `const user: Users = "editor"`,
+      options: [{ allow: "never" }],
+    },
+    {
+      code: `const user = "editor" as Users`,
       options: [{ allow: "never" }],
     },
   ],
@@ -119,6 +133,12 @@ tester.run(`${rule.meta.name}: allow: "never"`, rule, {
       code: `const user: TUsers = "editor"`,
       errors: [{ message: "Types must not start with a capital T" }],
       output: `const user: Users = "editor"`,
+      options: [{ allow: "never" }],
+    },
+    {
+      code: `const user = "editor" as TUsers`,
+      errors: [{ message: "Types must not start with a capital T" }],
+      output: `const user = "editor" as Users`,
       options: [{ allow: "never" }],
     },
   ],
