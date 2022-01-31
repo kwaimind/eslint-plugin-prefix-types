@@ -22,6 +22,13 @@ tester.run(`${rule.meta.name}: allow: "always"`, rule, {
       code: 'type TTestType = "test1" | "test2"',
       options: [{ allow: "always" }],
     },
+    /*     {
+      code: `
+        type TUsers = "editor" | "admin";
+        const user: TUsers = "editor"
+      `,
+      options: [{ allow: "always" }],
+    }, */
   ],
   invalid: [
     {
@@ -54,6 +61,18 @@ tester.run(`${rule.meta.name}: allow: "always"`, rule, {
       output: "type TMyType = true | false",
       options: [{ allow: "always" }],
     },
+    /* {
+      code: `
+        type Users = "editor" | "admin";
+        const user: Users = "editor"
+      `,
+      errors: [{ message: "Types must start with a capital T" }],
+      output: `
+        type TUsers = "editor" | "admin";
+        const user: TUsers = "editor"
+      `,
+      options: [{ allow: "always" }],
+    }, */
   ],
 });
 
