@@ -28,6 +28,10 @@ tester.run(`${rule.meta.name}: allow: "always"`, rule, {
       code: "export interface ICustomProps { preview: boolean; }",
       options: [{ allow: "always" }],
     },
+    {
+      code: "declare global {interface Window {dataLayer?: Record<string, unknown>[];}}",
+      options: [{ allow: "always" }],
+    },
   ],
   invalid: [
     {
@@ -77,6 +81,10 @@ tester.run(`${rule.meta.name}: allow: "never"`, rule, {
     },
     {
       code: "interface myInfoProps { preview: boolean; }",
+      options: [{ allow: "never" }],
+    },
+    {
+      code: "declare global {interface Window {dataLayer?: Record<string, unknown>[];}}",
       options: [{ allow: "never" }],
     },
   ],
