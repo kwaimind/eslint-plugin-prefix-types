@@ -34,6 +34,10 @@ tester.run(`${rule.meta.name}: allow: "always"`, rule, {
       code: "declare module '*.svg' { const content: any; export const ReactComponent: any; export default content; }",
       options: [{ allow: "always" }],
     },
+    {
+      code: "const SLinkButton = styled(Link)``",
+      options: [{ allow: "always" }],
+    },
   ],
   invalid: [
     {
@@ -58,6 +62,14 @@ tester.run(`${rule.meta.name}: allow: "always"`, rule, {
         { message: "Styled Component names must start with a capital S" },
       ],
       output: "const SMyStyledContainer = styled.div`display: flex;`",
+      options: [{ allow: "always" }],
+    },
+    {
+      code: "const LinkButton = styled(Link)``",
+      errors: [
+        { message: "Styled Component names must start with a capital S" },
+      ],
+      output: "const SLinkButton = styled(Link)``",
       options: [{ allow: "always" }],
     },
   ],
@@ -89,6 +101,10 @@ tester.run(`${rule.meta.name}: allow: "never"`, rule, {
       code: "declare module '*.svg' { const content: any; export const ReactComponent: any; export default content; }",
       options: [{ allow: "never" }],
     },
+    {
+      code: "const LinkButton = styled(Link)``",
+      options: [{ allow: "never" }],
+    },
   ],
   invalid: [
     {
@@ -113,6 +129,14 @@ tester.run(`${rule.meta.name}: allow: "never"`, rule, {
         { message: "Styled Component names must not start with a capital S" },
       ],
       output: "const MyStyledContainer = styled.div`display: flex;`",
+      options: [{ allow: "never" }],
+    },
+    {
+      code: "const SLinkButton = styled(Link)``",
+      errors: [
+        { message: "Styled Component names must not start with a capital S" },
+      ],
+      output: "const LinkButton = styled(Link)``",
       options: [{ allow: "never" }],
     },
   ],
